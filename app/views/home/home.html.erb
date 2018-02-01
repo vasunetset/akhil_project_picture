@@ -1,0 +1,17 @@
+
+
+<% if user_signed_in? %>
+	<%= image_tag current_user.image_url.to_s %>
+	
+  <h2>Log Out </h2>
+	<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+  <h2>Edit Profile</h2>
+    <%= link_to 'Edit my Profile', edit_user_registration_path %>
+
+<% else %>
+  <h2>Already User</h2>
+  <%= link_to('Login', new_user_session_path)  %> 
+  <h2>Join Us</h2>
+  <%= link_to 'Sign Up', new_user_registration_path %> 
+
+<% end %>
